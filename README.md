@@ -5,6 +5,7 @@
 - git clone
 - create-react-app
 
+
 컴포넌트 작성
 - TodoList
 - TodoItem
@@ -15,5 +16,6 @@
 - useEffect로 초기값 세팅 (componentDidMount와 비슷)
 
 - AddItem
+
   ㄴ입력폼 추가 (input + 버튼)
 
