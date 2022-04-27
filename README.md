@@ -10,7 +10,7 @@
 - TodoList
 - TodoItem
 - 조건부 렌더링 isDone
-- useState 추가
+- useState로 List 데이터 state, 초기값 설정
 
 - TodoItem 구조 설계
 - useEffect로 초기값 세팅 (componentDidMount와 비슷)
