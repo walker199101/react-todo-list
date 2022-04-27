@@ -6,3 +6,21 @@
     text-decoration: line-through;
     text-decoration-thickness: 4px;
 }
+
+.complete-btn {
+    color: white;
+    background: green;
+    margin-left: 4px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer
+}
+
+.delete-btn {
+    color: white;
+    background: red;
+    margin-left: 4px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer
+}

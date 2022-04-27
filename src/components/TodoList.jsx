@@ -14,12 +14,11 @@ import AddItem from './AddItem';
 
 function TodoList () {
     const todoData = [
-        { key: 1, text: "산책하기", isDone: true },
-        { key: 2, text: "독서하기", isDone: false },
-        { key: 3, text: "프로그래밍 연습", isDone: true }
+        { id: 1, text: "산책하기", isDone: true },
+        { id: 2, text: "독서하기", isDone: false },
+        { id: 3, text: "프로그래밍 연습", isDone: true }
     ]
     const [listItems, setListItems] = useState(todoData);
-    // useEffect
     useEffect(() => {
         console.log('컴포넌트가 화면에 나타남');
         return () => {
@@ -29,18 +28,30 @@ function TodoList () {
     }, []);
 
     const onAddItem = (item) => {
+        item.id = listItems && listItems.length + 1;
         setListItems([...listItems, item]);
     }
 
-    const onRemoveItem = (idx) => {
-        
+    const onCompleteItem = (id) => {
+        setListItems(
+            // * 일부 value 갱신 시는 map 반복문 사용
+            listItems.map(
+                el => el.id === id ? { ...el, isDone: !el.isDone } : el
+            )
+        )
+    }
+
+    const onRemoveItem = (id) => {
+        // filter는 조건에 부합하는 요소만 남김
+        setListItems(listItems.filter(el => el.id !== id));
     }
 
     return (
         <div>
             {
                 listItems.map((el) => 
-                    <TodoItem key={el.key} text={el.text} isDone={el.isDone} />
+                    <TodoItem itemData={el} onCompleteItem={onCompleteItem}
+                    onRemoveItem={onRemoveItem} />
                 )
             }
             <AddItem onAddItem={onAddItem} />
