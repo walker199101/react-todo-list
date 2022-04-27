@@ -1,6 +1,6 @@
+import React, { useState, useEffect } from 'react';
 import TodoItem from './TodoItem';
 import AddItem from './AddItem';
-import React, { useState, useEffect } from 'react';
 
 // * 주로, 마운트 시에 하는 작업들은 다음과 같은 사항들이 있습니다.
 // props 로 받은 값을 컴포넌트의 로컬 상태로 설정
@@ -13,21 +13,28 @@ import React, { useState, useEffect } from 'react';
 // 라이브러리 인스턴스 제거
 
 function TodoList () {
-    const [listItems, setListItems] = useState([]);
     const todoData = [
         { key: 1, text: "산책하기", isDone: true },
         { key: 2, text: "독서하기", isDone: false },
         { key: 3, text: "프로그래밍 연습", isDone: true }
     ]
+    const [listItems, setListItems] = useState(todoData);
     // useEffect
     useEffect(() => {
         console.log('컴포넌트가 화면에 나타남');
-        setListItems(todoData);
         return () => {
-          // cleanup 함수
-          console.log('컴포넌트가 화면에서 사라짐');
+            // cleanup 함수
+            console.log('컴포넌트가 화면에서 사라짐');
         };
-      }, []);
+    }, []);
+
+    const onAddItem = (item) => {
+        setListItems([...listItems, item]);
+    }
+
+    const onRemoveItem = (idx) => {
+        
+    }
 
     return (
         <div>
@@ -36,7 +43,7 @@ function TodoList () {
                     <TodoItem key={el.key} text={el.text} isDone={el.isDone} />
                 )
             }
-            <AddItem  />
+            <AddItem onAddItem={onAddItem} />
         </div>
     )
 }

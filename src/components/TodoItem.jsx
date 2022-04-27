@@ -6,7 +6,7 @@ function TodoItem (props) {
     return (
         <div className="todo-item">
             { isDone ? 
-                <div>{text}</div> : <div className="done">{text}</div>
+                <div className="done">{text}</div> : <div>{text}</div>
             }
         </div>
     )
