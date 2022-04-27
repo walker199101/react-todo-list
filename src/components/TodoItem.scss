@@ -1,5 +1,11 @@
 .todo-item {
     padding: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.text {
+    flex: 0.8;
 }
 
 .done {

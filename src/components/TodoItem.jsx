@@ -6,14 +6,12 @@ function TodoItem (props) {
     
     return (
         <div className="todo-item">
-            <div>
             { isDone ? 
-                <span className="done">{text}</span> : <span>{text}</span>
+                <span className="done text">{text}</span> : <span className="text">{text}</span>
             }
             <button className="complete-btn" onClick={() => onCompleteItem(id)}
             >O</button><button className="delete-btn" onClick={() => onRemoveItem(id)}
             >X</button>
-            </div>
         </div>
     )
 }
